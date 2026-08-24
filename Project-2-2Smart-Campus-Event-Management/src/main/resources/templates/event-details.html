@@ -1,0 +1,24 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <title th:text="${event.title}">Event</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <a href="/">Back</a>
+  <h1 th:text="${event.title}">Title</h1>
+  <p th:text="${event.description}">Description</p>
+  <p><strong>Department:</strong> <span th:text="${event.department}"></span></p>
+  <p><strong>Type:</strong> <span th:text="${event.type}"></span></p>
+  <p><strong>Date:</strong> <span th:text="${event.date}"></span> <strong>Time:</strong> <span th:text="${event.time}"></span></p>
+  <p><strong>Venue:</strong> <span th:text="${event.venue}"></span></p>
+  <p><strong>Available Capacity:</strong> <span th:text="${event.capacity}"></span></p>
+  <div>
+    <form th:action="@{'/api/events/' + ${event.id} + '/register'}" method="post">
+      <input type="hidden" name="userId" value="1" />
+      <button type="submit">Register (demo: posts userId=1)</button>
+    </form>
+  </div>
+</body>
+</html>

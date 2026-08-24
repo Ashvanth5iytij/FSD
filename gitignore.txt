@@ -1,0 +1,9 @@
+node_modules/
+.env
+.idea/
+oracleJdk-26/
+.env.local
+dist/
+.dist/
+npm-debug.log
+*.sql

@@ -1,0 +1,25 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8" />
+  <title>Smart Campus - Home</title>
+  <link rel="stylesheet" th:href="@{/css/style.css}" />
+</head>
+<body>
+  <nav>
+    <a href="/">Home</a> |
+    <a href="/login">Login</a>
+  </nav>
+  <h1>Upcoming Events</h1>
+  <div th:if="${events}">
+    <ul>
+      <li th:each="e: ${events}">
+        <a th:href="@{'/events/' + ${e.id}}" th:text="${e.title}">Event</a>
+        - <span th:text="${e.department}"></span>
+        - <span th:text="${e.type}"></span>
+        - <span th:text="${e.date}"></span>
+      </li>
+    </ul>
+  </div>
+</body>
+</html>
